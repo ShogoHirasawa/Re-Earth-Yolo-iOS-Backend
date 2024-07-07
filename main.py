@@ -8,8 +8,6 @@ import uuid
 
 app = Flask(__name__)
 
-print("スタート")
-
 # データベース設定
 DATABASE_URI = 'mysql+pymysql://{user}:{pass}@localhost:3306/yolo_reearth'
 engine = create_engine(DATABASE_URI)
