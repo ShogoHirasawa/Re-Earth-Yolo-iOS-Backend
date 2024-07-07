@@ -14,18 +14,12 @@ class VehicleData(Base):
     longitude = Column(Numeric(10, 7), nullable=False)
     device_records = relationship('DeviceVehicle', back_populates='vehicle')
 
-    def __repr__(self):
-        return f"<VehicleData(id='{self.id}', vehicle_type='{self.vehicle_type}', timestamp='{self.timestamp}', latitude={self.latitude}, longitude={self.longitude})>"
-
 class DeviceInfo(Base):
     __tablename__ = 'device_info'
     id = Column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(36), nullable=False)
     device_id = Column(String(36), nullable=False)
     vehicle_records = relationship('DeviceVehicle', back_populates='device')
-
-    def __repr__(self):
-        return f"<DeviceInfo(id='{self.id}', name='{self.name}', device_id='{self.device_id}')>"
 
 class DeviceVehicle(Base):
     __tablename__ = 'device_vehicle'
